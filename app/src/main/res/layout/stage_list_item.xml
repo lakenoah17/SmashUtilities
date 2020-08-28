@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/CardView_StageListItem"
+    android:layout_margin="16dp"
+    cardUseCompatPadding="true"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="24dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView_StageListName"
+            android:textSize="28sp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/create_stage_list"
+            android:padding="16dp"
+            style="@style/TextFields"
+            />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basebackground"
+    tools:context=".CharacterDataFeature.CharacterDataActivity">
+
+    <ProgressBar
+        android:id="@+id/loading_spinner_characterData"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/TextView_NoDataFound"
+        style="@style/TextFields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:visibility="gone"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+            android:id="@+id/LinearLayout_CharacterDataLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                style="@style/TextFields"
+                android:textSize="36sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:id="@+id/CharacterName"/>
+
+            <ImageView
+                android:layout_width="280dp"
+                android:layout_height="100dp"
+                android:id="@+id/CharacterDataImage"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="24dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp">
+
+                <GridLayout
+                    android:id="@+id/GridLayout_MovementGrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#505050"
+                    android:columnCount="4"
+                    android:padding="1dp"
+                    android:rowCount="10"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R0_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/statistic_title" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R0_C1"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/value_title" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R0_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/statistic_title" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R0_C3"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/value_title" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R1_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/weight" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R1_C1"
+                        style="@style/CharacterDataGrid"/>
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R1_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/max_jumps" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R1_C3"
+                        style="@style/CharacterDataGrid"/>
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R2_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/run_speed" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R2_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R2_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/wall_jump" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R2_C3"
+                        style="@style/CharacterDataGrid"/>
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R3_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/walk_speed" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R3_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R3_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/wall_cling" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R3_C3"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R4_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/air_speed" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R4_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R4_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/crawl" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R4_C3"
+                        style="@style/CharacterDataGrid" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R5_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/fall_speed" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R5_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R5_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/tether" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R5_C3"
+                        style="@style/CharacterDataGrid" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R6_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/fast_fall_speed" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R6_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R6_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/jumpsquat" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R6_C3"
+                        style="@style/CharacterDataGrid" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R7_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/air_acceleration" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R7_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R7_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/soft_landing_lag" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R7_C3"
+                        style="@style/CharacterDataGrid" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R8_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/gravity" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R8_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R8_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/hard_land_lag" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R8_C3"
+                        style="@style/CharacterDataGrid" />
+
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R9_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/sh_air_time" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R9_C1"
+                        style="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R9_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/fh_air_time" />
+
+                    <TextView
+                        android:id="@+id/TextView_MovementGrid_R9_C3"
+                        style="@style/CharacterDataGrid" />
+
+                </GridLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/pixeloperator"
+                android:text="@string/ground_moves"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <GridLayout
+                    android:id="@+id/GridLayout_groundAttackGrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#505050"
+                    android:columnCount="8"
+                    android:padding="1dp"
+                    android:rowCount="2">
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/name"
+                        android:theme="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C1"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/hitbox_active"
+                        android:theme="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/faf"
+                        android:theme="@style/CharacterDataGrid"/>
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C3"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/base_dmg"
+                        android:theme="@style/CharacterDataGrid"/>
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C4"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/angle" />
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C5"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/bkb_fkb" />
+
+                    <TextView
+                        android:id="@+id/TextView_GroundAttackGrid_R0_C6"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/kbg" />
+
+                </GridLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/pixeloperator"
+                android:text="@string/aerial_moves"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <GridLayout
+                    android:id="@+id/GridLayout_aerialAttackGrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#505050"
+                    android:columnCount="10"
+                    android:padding="1dp"
+                    android:rowCount="2">
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/name"
+                        android:theme="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C1"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/hitbox_active"
+                        android:theme="@style/CharacterDataGrid" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/faf" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C3"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/base_dmg" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C4"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/angle" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C5"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/bkb_fkb" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C6"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/landing_lag" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C7"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/auto_cancel" />
+
+                    <TextView
+                        android:id="@+id/TextView_AerialAttackGrid_R0_C8"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/kbg" />
+
+                </GridLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/pixeloperator"
+                android:text="@string/special_moves"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <GridLayout
+                    android:id="@+id/GridLayout_specialAttackGrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#505050"
+                    android:columnCount="8"
+                    android:padding="1dp"
+                    android:rowCount="2">
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C0"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/name" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C1"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/hitbox_active" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C2"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/faf" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C3"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/base_dmg" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C4"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/angle" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C5"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/bkb_fkb" />
+
+                    <TextView
+                        android:id="@+id/TextView_specialAttackGrid_R0_C6"
+                        style="@style/CharacterDataGrid"
+                        android:text="@string/kbg" />
+
+                </GridLayout>
+
+            </HorizontalScrollView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.honorsmobileapps.noahshields.smashutilities.CharacterDataFeature;
 
+//Stores all of the movement data of a character
 public class MovementValData {
     //Different values
     private String weight;
@@ -22,12 +23,15 @@ public class MovementValData {
     private String fHAirTime;
     private String[] movementArray;
 
+    //Initializes an empty MovementValData object
     public MovementValData(){
         movementArray = new String[18];
         for (int i = 0; i < movementArray.length; i++){
             movementArray[i] = "Null";
         }
     }
+
+    //Initialises a MovementValData object with all data from KuroganeHammer
     public MovementValData(String[] movementValues){
         this.weight = movementValues[0];
         this.maxJumps = movementValues[1];

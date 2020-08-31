@@ -16,12 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.honorsmobileapps.noahshields.smashutilities.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
+//This activity shows all of the CharacterData of a chosen character to the user
 public class CharacterDataActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<CharacterData>{
 
     //KuroganeHammer API URL. Used to retrieve character data
@@ -140,19 +139,22 @@ public class CharacterDataActivity extends AppCompatActivity implements LoaderMa
     }
 
     //Allows for dynamic creation of Intent instead of hardcoding Extra keys into two classes
-    public static Intent newIntent(Context packageContext, int characterPos, String name, String picUrl){
+    //Params:
+    //  packageContext - context of the previous activity
+    //  characterPos - the position (index) of the character in the RecyclerView
+    //  name - the name of the character
+    //  picURL - the URL of the image of the character
+    //Returns: returns the the Intent to be used to start an activity
+    public static Intent newIntent(Context packageContext, int characterPos, String name, String picURL){
         Intent startNew = new Intent(packageContext, CharacterDataActivity.class);
-        startNew.putExtra(EXTRA_CHARACTER_POSITION,characterPos);
+        startNew.putExtra(EXTRA_CHARACTER_POSITION, characterPos);
         startNew.putExtra(EXTRA_CHARACTER_NAME, name);
-        startNew.putExtra(EXTRA_PICTURE_URL,picUrl);
+        startNew.putExtra(EXTRA_PICTURE_URL, picURL);
         return startNew;
     }
 
     //Populates the different attacks properties into the grid
     public void populateGridAttackLayout(String moveType){
-
-
-
         //Used to retrieve the currAttackGrid
         String gridName = "GridLayout_" + moveType + "AttackGrid";
 

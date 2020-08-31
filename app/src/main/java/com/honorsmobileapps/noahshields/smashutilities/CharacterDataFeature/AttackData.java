@@ -18,6 +18,8 @@ public class AttackData {
     private String[] values;
 
     //Initializes all of the attack values
+    //  values - string array that contains all of the info required of an attack
+    //  ##isWeightDependent## - deprecated removal required
     public AttackData(String[] values, boolean isWeightDependent){
         this.name = values[0];
         this.hitboxActive = values[1];

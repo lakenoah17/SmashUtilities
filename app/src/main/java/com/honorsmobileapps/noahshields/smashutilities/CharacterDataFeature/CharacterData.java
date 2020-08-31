@@ -16,6 +16,9 @@ public class CharacterData {
     }
 
     //Initializes the fields of the CharacterData object
+    //Params:
+    //  movementValData - Contains all of the movement values of the character
+    //  attacks - an ArrayList of all of the attacks the the character has
     public CharacterData(MovementValData movementValData, ArrayList<AttackData> attacks){
         this.characterMovement = movementValData;
         this.attacks = attacks;

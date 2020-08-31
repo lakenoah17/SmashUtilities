@@ -150,10 +150,10 @@ public final class QueryUtils {
         // Return the CharacterData
         return moves;
     }
-    public static CharacterData fetchCharacterData(String requestURL, int charPos){
+    public static CharacterData fetchCharacterData(String requestURL, int characterIndex){
         try {
             JSONArray rootJSON = new JSONArray(fetchJSONString(requestURL));
-            JSONObject currCharacter = rootJSON.getJSONObject(charPos);
+            JSONObject currCharacter = rootJSON.getJSONObject(characterIndex);
             JSONObject related = currCharacter.getJSONObject("Related");
             JSONObject smashUltimateDataLinks = related.getJSONObject("Ultimate");
             MovementValData movementValData = extractMovementData(fetchJSONString("https" + smashUltimateDataLinks.getString("Movements").substring(smashUltimateDataLinks.getString("Moves").indexOf(":"))));

@@ -30,6 +30,9 @@ public class CharacterDataLoader extends AsyncTaskLoader<CharacterData> {
     }
 
     //Retrieves and returns all a character data object utilising KuroganeHammer
+    //Params: N/A
+    //Returns:
+    //
     @Override
     public CharacterData loadInBackground(){
         //Makes sure URL isn't null

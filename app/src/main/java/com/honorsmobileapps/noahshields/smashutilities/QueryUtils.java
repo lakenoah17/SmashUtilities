@@ -1,9 +1,6 @@
 package com.honorsmobileapps.noahshields.smashutilities;
 
-import android.content.Context;
-import android.text.method.HideReturnsTransformationMethod;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.honorsmobileapps.noahshields.smashutilities.CharacterDataFeature.AttackData;
 import com.honorsmobileapps.noahshields.smashutilities.CharacterDataFeature.BasicCharacterInfo;
@@ -19,21 +16,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class QueryUtils {
     private static final String LOG_TAG = CharacterDataSelectionActivity.class.getSimpleName();
-    private static boolean isChallonge = false;
 
-
-    //Can't instantiate QueryUtils
+    //Stops the instantiation of QueryUtils
     private QueryUtils() { }
 
 
@@ -87,7 +80,7 @@ public final class QueryUtils {
     private static String readFromStream(InputStream inputStream) throws IOException {
         StringBuilder output = new StringBuilder();
         if (inputStream != null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
             String line = reader.readLine();
             while (line != null) {
@@ -97,6 +90,8 @@ public final class QueryUtils {
         }
         return output.toString();
     }
+
+
     //Fetches the JSON String from a given URL
     public static String fetchJSONString(String requestUrl){
         URL url = createUrl(requestUrl);

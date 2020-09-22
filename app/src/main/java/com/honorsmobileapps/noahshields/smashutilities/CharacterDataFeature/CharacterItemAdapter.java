@@ -63,6 +63,8 @@ public class CharacterItemAdapter extends RecyclerView.Adapter<CharacterItemAdap
         }
 
         //Changes the activity if this item is clicked
+        //Params:
+        //  v - the item of the RecyclerView that was clicked
         @Override
         public void onClick(View v) {
             //Sets up the Intent to start the next activity
@@ -92,7 +94,7 @@ public class CharacterItemAdapter extends RecyclerView.Adapter<CharacterItemAdap
     //Creates the holder for the item views
     //  viewGroup - holds all of the item views in the RecyclerView
     //  i - the index of the view holder created in the RecyclerView
-    //Returns: returns the CharacterItemViewHolder
+    //Returns: the CharacterItemViewHolder
     @Override
     @NonNull
     public CharacterItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {

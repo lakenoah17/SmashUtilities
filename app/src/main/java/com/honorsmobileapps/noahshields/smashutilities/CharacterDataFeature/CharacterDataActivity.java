@@ -154,6 +154,8 @@ public class CharacterDataActivity extends AppCompatActivity implements LoaderMa
     }
 
     //Populates the different attacks properties into the grid
+    //Params:
+    //  moveType - type of attack grid this is populating
     public void populateGridAttackLayout(String moveType){
         //Used to retrieve the currAttackGrid
         String gridName = "GridLayout_" + moveType + "AttackGrid";

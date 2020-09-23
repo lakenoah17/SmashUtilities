@@ -11,10 +11,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 import com.honorsmobileapps.noahshields.smashutilities.R;
-import com.honorsmobileapps.noahshields.smashutilities.StageStrikingFeature.ChooseStageListActivity;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class CreateNoteActivity extends AppCompatActivity {
 
@@ -35,7 +31,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 if (comboFormatButton.isChecked()){
                     temp="combo";
                 }
-                String noteName = "com.honorsmobileapps.noahshields.smashutilities.note"+temp+name.getText().toString();
+                String noteName = "com.honorsmobileapps.noahshields.smashutilities.note"+temp+"$"+name.getText().toString();
                 editor.putString(noteName, "");
                 editor.commit();
                 Intent returnToStageSelections = new Intent(v.getContext(), AccessNotesActivity.class);

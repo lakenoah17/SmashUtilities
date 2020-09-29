@@ -9,14 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.TextView;
-
 import com.honorsmobileapps.noahshields.smashutilities.R;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+//This is the activity where stage striking functionality is implemented
 public class StageStrikingActivity extends AppCompatActivity {
     private boolean[] strikedStages;
     private static final String STRIKED_STAGES_KEY = "strikedStages";
@@ -27,6 +26,7 @@ public class StageStrikingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stage_striking);
 
+        //Array of stage image resources
         int[] stageImageResources = {R.drawable.battlefield_image, R.drawable.big_battlefield_image, R.drawable.final_destination_image,
                 R.drawable.peachs_castle_image, R.drawable.kongo_jungle_picture, R.drawable.hyrule_castle_sixty_four_image,
                 R.drawable.super_happy_tree_image, R.drawable.dreamland_image, R.drawable.kongo_falls_image,
@@ -38,8 +38,8 @@ public class StageStrikingActivity extends AppCompatActivity {
                 R.drawable.smashville_image, R.drawable.unova_image, R.drawable.picto_chat_image,
                 R.drawable.kalos_image, R.drawable.town_and_city_image, R.drawable.duck_hunt_image};
 
-
-        String[] stageNameAndSize = new String[]{"Battle Field", "Big Battle Field", "Final Destination",
+        //Array of the names of stages
+        String[] stageName = new String[]{"Battle Field", "Big Battle Field", "Final Destination",
                 "Peach's Castle", "Kongo Jungle", "Hyrule Castle",
                 "Super Happy Tree", "Dreamland", "Kongo Falls",
                 "Temple", "Brinstar", "Yoshi's Story",
@@ -51,9 +51,10 @@ public class StageStrikingActivity extends AppCompatActivity {
                 "Kalos Pokemon League", "Town and City", "Duck Hunt"};
 
         stages = new ArrayList<>();
+
+        //Gets the Shared Preferences
         String key = getIntent().getStringExtra("SharedPrefKey");
         String stageListName = getIntent().getStringExtra("StageListName");
-
 
         Set<String> defSet = new Set<String>() {
             @Override
@@ -127,26 +128,34 @@ public class StageStrikingActivity extends AppCompatActivity {
 
         Set<String> stagesSet = this.getSharedPreferences("com.honorsmobileapps.noahshields.smashutilities", Context.MODE_PRIVATE).getStringSet(key, defSet);
 
-        boolean openRun = true;
+        //This boolean represents whether this is the activities first
+        // run or if it is retrieving from a saved instance state
+        boolean isFirstRun = true;
 
+        //Gets the already striked stages if this is a saved instance
         if (savedInstanceState != null){
             strikedStages = savedInstanceState.getBooleanArray(STRIKED_STAGES_KEY);
-            openRun = false;
+            isFirstRun = false;
         }
 
-
+        //Loops through all of the stages in the stagelist
+        // creating stage info and adding it to the list
         for (String a : stagesSet){
-            for (int i = 0; i < stageNameAndSize.length; i++){
-                if (openRun && a.equals(stageNameAndSize[i])){
-                    stages.add(new BasicStageInfo(stageImageResources[i], stageNameAndSize[i], false));
+            //loiops through all of the stages checking if this is one in the stage l;ist
+            for (int i = 0; i < stageName.length; i++){
+                //Adds the item to the list with selected value as false
+                if (isFirstRun && a.equals(stageName[i])){
+                    stages.add(new BasicStageInfo(stageImageResources[i], stageName[i], false));
                 }
-                else if (a.equals(stageNameAndSize[i])){
-                    stages.add(new BasicStageInfo(stageImageResources[i], stageNameAndSize[i], strikedStages[stages.size()]));
+                else if (a.equals(stageName[i])){
+                    stages.add(new BasicStageInfo(stageImageResources[i], stageName[i], strikedStages[stages.size()]));
                 }
             }
         }
 
-        if (openRun){
+        //Creates new boolean array for stages already
+        // selected to save for saved instance states
+        if (isFirstRun){
             strikedStages = new boolean[stages.size()];
         }
 
@@ -169,15 +178,18 @@ public class StageStrikingActivity extends AppCompatActivity {
     }
 
     //Saves the current state of the striking
+    //Params:
+    //  savedInstanceState - the bundle to save data across rotations in
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
+        //Loops through all items checking if they are selected or not
         for (int i = 0; i < stages.size(); i++){
             strikedStages[i] = stages.get(i).getSelected();
         }
 
+        //Adds selected stage array to bundle
         savedInstanceState.putBooleanArray(STRIKED_STAGES_KEY, strikedStages);
 
-        //declare values before saving the state
         super.onSaveInstanceState(savedInstanceState);
     }
 }

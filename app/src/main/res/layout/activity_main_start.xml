@@ -80,9 +80,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/stage_list_thumbnail_correct"
-                    app:srcCompat="@drawable/stagelist_thumbnail_grey_cropped" />
+                    android:scaleType="fitXY"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
